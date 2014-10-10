@@ -1,0 +1,26 @@
+{
+	"name": "mdmsoft/yii2-generators",
+	"description": "Yii2 custom generator for gii",
+	"keywords": ["yii2", "gii"],
+	"type": "yii2-extension",
+	"license": "BSD-3-Clause",
+	"support": {
+		"issues": "https://github.com/mdmsoft/yii2-generators/issues",
+		"source": "https://github.com/mdmsoft/yii2-generators"
+	},
+	"authors": [
+		{
+			"name": "Misbahul Munir",
+			"email": "misbahuldmunir@gmail.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "*",
+		"yiisoft/yii2-gii": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"mdm\\gii\\": ""
+		}
+	}
+}
