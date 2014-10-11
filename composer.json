@@ -1,5 +1,5 @@
 {
-	"name": "mdmsoft/yii2-generators",
+	"name": "mdmsoft/yii2-gii",
 	"description": "Yii2 custom generator for gii",
 	"keywords": ["yii2", "gii"],
 	"type": "yii2-extension",
