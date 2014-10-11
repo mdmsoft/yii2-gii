@@ -1,7 +1,7 @@
 yii2-generators
 ===============
 
-Yii2 custom generator fo gii
+Yii2 custom generator
 
 Installation
 ------------
