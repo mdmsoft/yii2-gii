@@ -17,8 +17,8 @@ namespace <?= StringHelper::dirname(ltrim($generator->controllerClass, '\\')) ?>
 use Yii;
 
 /**
-*
-*/
+ * <?= $generator->getControllerClass() ?> .
+ */
 class <?= $generator->getControllerClass() ?> extends <?= '\\' . trim($generator->baseControllerClass, '\\') . "\n" ?>
 {
 <?php foreach ($generator->getActionIDs() as $action): ?>

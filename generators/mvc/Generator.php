@@ -11,7 +11,6 @@ namespace mdm\gii\generators\mvc;
 use Yii;
 use yii\gii\CodeFile;
 use yii\helpers\Html;
-use yii\helpers\Inflector;
 use yii\base\Model;
 use yii\web\Controller;
 
@@ -161,6 +160,14 @@ class Generator extends \yii\gii\Generator
                 Action IDs should be in lower case. For example:
                 <ul>
                     <li><code>index</code> generates <code>actionIndex()</code></li>
+                    <li><code>create-order</code> generates <code>actionCreateOrder()</code></li>
+                </ul>',
+            'modelClass' => 'This is the model class for collecting the form input. You should provide a fully qualified class name, e.g., <code>app\models\Post</code>.',
+            'scenarioName' => 'This is the scenario to be used by the model when collecting the form input. If empty, the default scenario will be used.',
+            'formActions' => 'Provide one or multiple action IDs to generate empty action method(s) in the controller. Separate multiple action IDs with commas or spaces.
+                Action IDs should be in lower case. For example:
+                <ul>
+                    <li><code>update</code> generates <code>actionUpdate()</code></li>
                     <li><code>create-order</code> generates <code>actionCreateOrder()</code></li>
                 </ul>',
             'moduleID' => 'This is the ID of the module that the generated controller will belong to.
