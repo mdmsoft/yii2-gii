@@ -10,6 +10,7 @@ namespace mdm\gii\generators\crud;
 
 use Yii;
 use yii\web\Controller;
+use yii\gii\CodeFile;
 use yii\db\BaseActiveRecord;
 
 /**
@@ -86,6 +87,46 @@ class Generator extends \yii\gii\generators\crud\Generator
                     <li><code>admin/user</code> generates <code>UserController.php</code> under <code>admin</code> directory.</li>
                 </ul>',
         ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function generate()
+    {
+        $controllerFile = Yii::getAlias('@' . str_replace('\\', '/', ltrim($this->getControllerClass(), '\\')) . '.php');
+
+        $files = [
+            new CodeFile($controllerFile, $this->render('controller.php')),
+        ];
+
+        if (!empty($this->searchModelClass)) {
+            $searchModel = Yii::getAlias('@' . str_replace('\\', '/', ltrim($this->searchModelClass, '\\') . '.php'));
+            $files[] = new CodeFile($searchModel, $this->render('search.php'));
+        }
+
+        $viewPath = $this->getViewPath();
+        $templatePath = $this->getTemplatePath() . '/views';
+        foreach (scandir($templatePath) as $file) {
+            if (empty($this->searchModelClass) && $file === '_search.php') {
+                continue;
+            }
+            if (is_file($templatePath . '/' . $file) && pathinfo($file, PATHINFO_EXTENSION) === 'php') {
+                $files[] = new CodeFile("$viewPath/$file", $this->render("views/$file"));
+            }
+        }
+
+        return $files;
+    }
+    
+    /**
+     * @return string the action view file path
+     */
+    public function getViewPath()
+    {
+        $module = empty($this->moduleID) ? Yii::$app : Yii::$app->getModule($this->moduleID);
+
+        return $module->getViewPath() . '/' . $this->controllerID ;
     }
 
     /**
