@@ -15,18 +15,22 @@ echo "<?php\n";
 namespace <?= StringHelper::dirname(ltrim($generator->controllerClass, '\\')) ?>;
 
 use Yii;
+<?php if(!empty($generator->modelClass)):?>
+use <?= $generator->modelClass ?>;
+<?php endif;?>
+
 
 /**
- * <?= $generator->getControllerClass() ?> .
+* <?= StringHelper::basename(ltrim($generator->controllerClass, '\\')) ?> .
  */
-class <?= $generator->getControllerClass() ?> extends <?= '\\' . trim($generator->baseControllerClass, '\\') . "\n" ?>
+class <?= StringHelper::basename(ltrim($generator->controllerClass, '\\')) ?> extends <?= '\\' . trim($generator->baseControllerClass, '\\') . "\n" ?>
 {
 <?php foreach ($generator->getActionIDs() as $action): ?>
 <?php if($generator->isFormAction($action)):?>
 
     public function action<?= Inflector::id2camel($action) ?>()
     {
-        $model = new <?= $generator->modelClass ?><?= empty($generator->scenarioName) ? "()" : "(['scenario' => '{$generator->scenarioName}'])" ?>;
+        $model = new <?= StringHelper::basename($generator->modelClass) ?><?= empty($generator->scenarioName) ? "()" : "(['scenario' => '{$generator->scenarioName}'])" ?>;
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
