@@ -134,12 +134,7 @@ class Generator extends \yii\gii\generators\crud\Generator
      */
     public function successMessage()
     {
-        $actions = $this->getActionIDs();
-        if (in_array('index', $actions)) {
-            $route = '/' . $this->controllerID . '/index';
-        } else {
-            $route = '/' . $this->controllerID . '/' . reset($actions);
-        }
+        $route = '/' . $this->controllerID . '/index';
         if (!empty($this->moduleID)) {
             $route = '/' . $this->moduleID . $route;
         }
