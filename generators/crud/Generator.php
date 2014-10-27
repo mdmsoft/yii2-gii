@@ -56,6 +56,9 @@ class Generator extends \yii\gii\generators\crud\Generator
             [['baseControllerClass'], 'validateClass', 'params' => ['extends' => Controller::className()]],
             [['controllerID'], 'match', 'pattern' => '/^[a-z][a-z0-9\\-\\/]*$/', 'message' => 'Only a-z, 0-9, dashes (-) and slashes (/) are allowed.'],
             [['searchModelClass'], 'validateNewClass'],
+            [['controllerClass'],'filter','filter'=>function(){
+                return $this->getControllerClass();
+            }, 'skipOnEmpty' => false],
             [['indexWidgetType'], 'in', 'range' => ['grid', 'list']],
             [['modelClass'], 'validateModelClass'],
             [['moduleID'], 'validateModuleID'],
@@ -138,7 +141,7 @@ class Generator extends \yii\gii\generators\crud\Generator
         if (!empty($this->moduleID)) {
             $route = '/' . $this->moduleID . $route;
         }
-        $link = Html::a('try it now', [$route], ['target' => '_blank']);
+        $link = \yii\helpers\Html::a('try it now', [$route], ['target' => '_blank']);
 
         return "The controller has been generated successfully. You may $link.";
     }
