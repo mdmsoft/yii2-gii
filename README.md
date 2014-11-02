@@ -8,23 +8,19 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-At your `composer.json` file, add the following code
+Either run
+
 ```
-	"repositories": [
-        ...
-        {
-            "type": "git",
-            "url": "https://github.com/mdmsoft/yii2-gii"
-        }
-    ],
-	"require": {
-		...
-	},
-	"require-dev": {
-		...
-		"mdmsoft/yii2-gii": "*"
-	},
+php composer.phar require mdmsoft/yii2-gii "*"
 ```
+
+or add
+
+```
+"mdmsoft/yii2-gii": "*"
+```
+
+to the require section of your `composer.json` file.
 
 Usage
 -----
