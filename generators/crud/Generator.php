@@ -24,6 +24,7 @@ use yii\db\BaseActiveRecord;
 class Generator extends \yii\gii\generators\crud\Generator
 {
     public $controllerID;
+    public $moduleID;
 
     /**
      * @inheritdoc
@@ -74,6 +75,7 @@ class Generator extends \yii\gii\generators\crud\Generator
     {
         return array_merge(parent::attributeLabels(), [
             'controllerID' => 'Controller ID',
+            'moduleID' => 'Module ID',
         ]);
     }
 
@@ -92,6 +94,19 @@ class Generator extends \yii\gii\generators\crud\Generator
         ]);
     }
 
+    /**
+     * Checks if model ID is valid
+     */
+    public function validateModuleID()
+    {
+        if (!empty($this->moduleID)) {
+            $module = Yii::$app->getModule($this->moduleID);
+            if ($module === null) {
+                $this->addError('moduleID', "Module '{$this->moduleID}' does not exist.");
+            }
+        }
+    }
+    
     /**
      * @inheritdoc
      */
@@ -166,15 +181,5 @@ class Generator extends \yii\gii\generators\crud\Generator
         $className = ltrim($module->controllerNamespace . '\\' . str_replace('/', '\\', $prefix) . $className, '\\');
 
         return $className;
-    }
-    
-    /**
-     * @inheritdoc
-     */
-    public function defaultTemplate()
-    {
-        $class = new \ReflectionClass($this);
-
-        return dirname($class->getParentClass()->getFileName()) . '/default';
     }
 }
