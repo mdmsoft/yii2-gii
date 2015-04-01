@@ -40,6 +40,7 @@ if (!YII_ENV_TEST) {
         'generators' => [
             'crud' => ['class' => 'mdm\gii\generators\crud\Generator'],
             'mvc' => ['class' => 'mdm\gii\generators\mvc\Generator'],
+            'migration' => ['class' => 'mdm\gii\generators\migration\Generator'],
         ]
     ];
 }
