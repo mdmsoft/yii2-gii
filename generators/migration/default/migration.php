@@ -29,7 +29,7 @@ class <?= $migrationName ?> extends \yii\db\Migration
 <?php if(isset($table['primary'])): ?>
             <?= "'{$table['primary']}'" ?>,
 <?php endif; ?>
-<?php foreach ($table['relations'] as $key => $definition): ?>
+<?php foreach ($table['relations'] as $definition): ?>
             <?= "'$definition'" ?>,
 <?php endforeach;?>
         ], $tableOptions);

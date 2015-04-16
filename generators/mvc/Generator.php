@@ -22,6 +22,7 @@ use yii\web\Controller;
  * read-only.
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
+ * @since 1.0
  */
 class Generator extends \yii\gii\Generator
 {

@@ -1,9 +1,4 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace mdm\gii\generators\migration;
 
@@ -14,10 +9,10 @@ use yii\gii\CodeFile;
 use yii\db\Expression;
 
 /**
- * This generator will generate one or multiple ActiveRecord classes for the specified database table.
+ * This generator will generate migration file for the specified database table.
  *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * @author Misbahul D Munir <misbahuldmunir@gmail.com>
+ * @since 1.1
  */
 class Generator extends \yii\gii\Generator
 {
@@ -51,7 +46,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generator generates a migration(s) for the specified database table.';
+        return 'This generator generates a migration for the specified database table.';
     }
 
     /**
@@ -104,10 +99,10 @@ class Generator extends \yii\gii\Generator
             'generateRelations' => 'This indicates whether the generator should generate relations based on
                 foreign key constraints it detects in the database. Note that if your database contains too many tables,
                 you may want to uncheck this option to accelerate the code generation process.',
-            'useTablePrefix' => 'This indicates whether the table name returned by the generated ActiveRecord class
+            'useTablePrefix' => 'This indicates whether the table name returned by the generated migration
                 should consider the <code>tablePrefix</code> setting of the DB connection. For example, if the
-                table name is <code>tbl_post</code> and <code>tablePrefix=tbl_</code>, the ActiveRecord class
-                will return the table name as <code>{{%post}}</code>.',
+                table name is <code>tbl_post</code> and <code>tablePrefix=tbl_</code>, the migration
+                will use the table name as <code>{{%post}}</code>.',
         ]);
     }
 
@@ -178,6 +173,12 @@ class Generator extends \yii\gii\Generator
         return [$files];
     }
 
+    /**
+     * Reorder tables acourding with dependencies.
+     * @param array $tables
+     * @param array $relations
+     * @return array
+     */
     protected function reorderTables($tables, $relations)
     {
         $depencies = $orders = $result = [];
@@ -187,8 +188,9 @@ class Generator extends \yii\gii\Generator
             }
             $depencies[$table] = array_keys($relation);
         }
-        
-        $this->reorderRecrusive(array_keys($tables), $depencies, $orders);
+        $tableNames = array_keys($tables);
+        sort($tableNames);
+        $this->reorderRecrusive($tableNames, $depencies, $orders);
         foreach (array_keys($orders) as $value) {
             if (isset($tables[$value])) {
                 $result[] = $tables[$value];
@@ -197,9 +199,15 @@ class Generator extends \yii\gii\Generator
         return $result;
     }
 
-    protected function reorderRecrusive($tables, &$depencies, &$orders)
+    /**
+     *
+     * @param array $tableNames
+     * @param array $depencies
+     * @param array $orders
+     */
+    protected function reorderRecrusive($tableNames, &$depencies, &$orders)
     {
-        foreach ($tables as $table) {
+        foreach ($tableNames as $table) {
             if (!isset($orders[$table])) {
                 if (isset($depencies[$table])) {
                     $this->reorderRecrusive($depencies[$table], $depencies, $orders);
@@ -213,7 +221,7 @@ class Generator extends \yii\gii\Generator
     /**
      *
      * @param \yii\db\ColumnSchema $column
-     * @return string
+     * @return array
      */
     public function getSchemaType($column)
     {
