@@ -10,7 +10,7 @@ use yii\helpers\StringHelper;
 /* @var $this yii\web\View */
 /* @var $generator yii\gii\generators\crud\Generator */
 
-$controllerClass = StringHelper::basename($generator->controllerClass);
+$controllerClass = StringHelper::basename($generator->getControllerClass());
 $modelClass = StringHelper::basename($generator->modelClass);
 $searchModelClass = StringHelper::basename($generator->searchModelClass);
 if ($modelClass === $searchModelClass) {
@@ -27,7 +27,7 @@ $actionParamComments = $generator->generateActionParamComments();
 echo "<?php\n";
 ?>
 
-namespace <?= StringHelper::dirname(ltrim($generator->controllerClass, '\\')) ?>;
+namespace <?= StringHelper::dirname(ltrim($generator->getControllerClass(), '\\')) ?>;
 
 use Yii;
 use <?= ltrim($generator->modelClass, '\\') ?>;
