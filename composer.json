@@ -1,17 +1,17 @@
 {
-	"name": "mdmsoft/yii2-gii",
+	"name": "myzero1/yii2-gii",
 	"description": "Yii2 custom generator for gii",
-	"keywords": ["yii2", "gii"],
+	"keywords": ["yii2", "gii","migration","mvc","theme"],
 	"type": "yii2-extension",
 	"license": "BSD-3-Clause",
 	"support": {
-		"issues": "https://github.com/mdmsoft/yii2-gii/issues",
-		"source": "https://github.com/mdmsoft/yii2-gii"
+		"issues": "https://github.com/myzero1/yii2-gii/issues",
+		"source": "https://github.com/myzero1/yii2-gii"
 	},
 	"authors": [
 		{
-			"name": "Misbahul Munir",
-			"email": "misbahuldmunir@gmail.com"
+			"name": "Xuanwu Qin",
+			"email": "myzero1@sina.com"
 		}
 	],
 	"require": {
@@ -20,12 +20,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"mdm\\gii\\": ""
+			"myzero1\\gii\\": ""
 		}
-	},
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    }
+	}
 }
