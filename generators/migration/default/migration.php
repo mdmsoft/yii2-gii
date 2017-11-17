@@ -4,7 +4,7 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $generator mdm\gii\generators\migration\Generator */
+/* @var $generator myzero1\gii\generators\migration\Generator */
 /* @var $migrationName string migration name */
 
 echo "<?php\n";
@@ -21,7 +21,7 @@ class <?= $migrationName ?> extends \yii\db\Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 <?php foreach ($tables as $table): ?>
-        
+
         $this->createTable('<?= $table['name'] ?>', [
 <?php foreach ($table['columns'] as $column => $definition): ?>
             <?= "'$column' => $definition"?>,

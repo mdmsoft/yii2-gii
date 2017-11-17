@@ -6,7 +6,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace mdm\gii\generators\mvc;
+namespace myzero1\gii\generators\mvc;
 
 use Yii;
 use yii\gii\CodeFile;
@@ -59,7 +59,7 @@ class Generator extends \yii\gii\Generator
 
     /**
      *
-     * @var string 
+     * @var string
      */
     public $scenarioName;
 
@@ -68,7 +68,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'MDM MVC Generator';
+        return 'Myzero1 MVC Generator';
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\gii\generators\migration;
+namespace myzero1\gii\generators\migration;
 
 use Yii;
 use yii\db\Connection;
@@ -163,7 +163,7 @@ class Generator extends \yii\gii\Generator
                 'relations' => isset($relations[$tableSchema->name]) ? $relations[$tableSchema->name] : [],
             ];
         }
-        
+
         $migrationName = 'm'.$this->migrationTime.'_'.$this->migrationName;
         $file = rtrim(Yii::getAlias($this->migrationPath), '/')."/{$migrationName}.php";
         $files = new CodeFile($file, $this->render('migration.php', [

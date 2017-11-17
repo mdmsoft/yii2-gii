@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace mdm\gii\generators\crud;
+namespace myzero1\gii\generators\crud;
 
 use Yii;
 use yii\web\Controller;
@@ -30,7 +30,7 @@ class Generator extends \yii\gii\generators\crud\Generator
      */
     public function getName()
     {
-        return 'MDM CRUD Generator';
+        return 'Myzero1 CRUD Generator';
     }
 
     /**
@@ -169,7 +169,7 @@ class Generator extends \yii\gii\generators\crud\Generator
                 }
             }
             $this->viewPath = $this->module->getViewPath() . '/' . $id;
-    
+
             $pos = strrpos($id, '/');
             if ($pos === false) {
                 $prefix = '';
