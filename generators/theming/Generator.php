@@ -21,7 +21,7 @@ use yii\helpers\StringHelper;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \myzero1\gii\Generator
+class Generator extends \yii\gii\Generator
 {
     const ADMINLTE = 1;
 
@@ -32,9 +32,21 @@ class Generator extends \myzero1\gii\Generator
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        parent::init();
+
+        $this->templates = [
+            // 'AdminLte' => 'qq',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getName()
     {
-        return 'Theming Generator';
+        return 'Myzero1 Theming Generator';
     }
 
     /**
