@@ -1,0 +1,51 @@
+.filter-form {
+    overflow: hidden;
+    padding: 30px 0;
+    border-bottom: 1px dashed #e5e5e5;
+    margin-bottom: 30px;
+}
+.filter-form .form-group {
+    float: left;
+    margin: 0 5px;
+}
+.filter-form .field-lable {
+    float: left;
+    margin: 0 5px;
+}
+.filter-form .field-input {
+    float: left;
+}
+.filter-form .field-input input {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.box .box-header {
+    border-bottom: 1px solid #f4f4f4;
+}
+.box .box-header a {
+    margin: 5px 10px;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+}
+.text-center {
+    text-align: center;
+}
+.box .form-group-box {
+    margin: 0;
+}
+.box {
+    overflow-x: auto;
+}
+.form-horizontal .form-group{
+    margin-right: 0;
+    margin-left: 0;
+}
+.filter-form.form-horizontal .form-group{
+    margin: 0 5px;
+}
+
+/*---------custom.----------------*/
