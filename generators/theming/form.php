@@ -10,5 +10,6 @@
     echo $form->field($generator, 'themingID')->dropDownList([
 	    1 => 'adminlte',
 	]);
+	echo $generator->noticeMessage();
 ?>
 </div>

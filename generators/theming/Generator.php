@@ -155,7 +155,7 @@ EOD;
 
 $output = $output . '<pre>' . highlight_string($code2, true) . '</pre>';
 
-$output = $output . '<p> add the following requires to the section of require to composer.json. </p>';
+$output = $output . '<p> Added the following requires to the section of require to composer.json. </p>';
 
 $sComposerRequires = '';
 foreach ($this->getComposerRequires($this->themingID)['require'] as $key => $value) {
@@ -179,6 +179,47 @@ $sComposerRequires = trim($sComposerRequires,",\n");
 EOD;
 
         return $output . '<pre>' . highlight_string($code3, true) . '</pre>';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function noticeMessage()
+    {
+
+        $sComposerRequires = '';
+        foreach ($this->getComposerRequires($this->themingID)['require'] as $key => $value) {
+            $sComposerRequires .= sprintf('        "%s":"%s",',$key,$value) . "\n";
+        }
+        $sComposerRequires = trim($sComposerRequires,",\n");
+
+
+        $code = <<<EOD
+{
+    ......
+    "require": {
+        ......
+{$sComposerRequires}
+        ......
+    }
+    ......
+}
+EOD;
+
+        $code = highlight_string($code, true);
+
+        $output = <<<EOD
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        It will add the requires to composer.json
+    </div>
+    <div class="panel-body">
+        {$code}
+    </div>
+</div>
+EOD;
+
+        return $output;
     }
 
     /**
