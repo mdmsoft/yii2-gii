@@ -1,4 +1,4 @@
-Yii2-gii-plus
+Yii2-gii
 ========================
 It add theming generator and new template for crud.It based on [yiisoft/yii2-gii](https://github.com/yiisoft/yii2-gii)
 
@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require-dev myzero1/yii2-gii-plus：1.*
+php composer.phar require-dev myzero1/yii2-gii：1.*
 ```
 
 or add
 
 ```
-"myzero1/yii2-gii-plus": "~1.0.0"
+"myzero1/yii2-gii": "~1.0.0"
 ```
 
 to the require-dev section of your `composer.json` file.
