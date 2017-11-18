@@ -62,13 +62,73 @@ class Generator extends \yii\gii\Generator
     {
         $this->addRequiresToComposer();
 
-        $output = '<p> Added the following requires to the section of require to composer.json. </p>';
+        $output = <<<EOD
+<p>The module has been generated successfully.</p>
+<p>To access the module, you need to add this to your application configuration:</p>
+EOD;
 
-        $sComposerRequires = '';
-        foreach ($this->getComposerRequires($this->themingID)['require'] as $key => $value) {
-            $sComposerRequires .= sprintf('        "%s":"%s",',$key,$value) . "\n";
-        }
-        $sComposerRequires = trim($sComposerRequires,",\n");
+        $code = <<<EOD
+<?php
+    ......
+    'modules' => [
+        ......
+        'upload' => [
+            'class' => 'myzero1\yii2upload\Tools',
+            'upload' => [
+                'basePath' => '@webroot/upload',
+                'baseUrl' => '@web/upload',
+            ],
+        ],
+        ......
+    ],
+    ......
+EOD;
+
+$output = $output . '<pre>' . highlight_string($code, true) . '</pre>';
+
+$output = $output . '<p> Add upload widget like following: </p>';
+
+        $code2 = <<<EOD
+<?php
+    ......
+    echo \myzero1\yii2upload\widget\upload\Upload::widget([
+        'model' => $model,
+        'attribute' => 'logo',
+        // 'url' => ['/tools/upload/upload'], // default ['/tools/upload/upload'],
+        // 'sortable' => true,
+        // 'maxFileSize' => 200  * 1024, // 200k
+        // 'minFileSize' => 1 * 1024, // 1k
+        // 'maxNumberOfFiles' => 1, // default 1,
+        // 'acceptFileTypesNew' => [], // default ['gif','jpeg','jpg','png'],
+        // 'acceptFileTypes' => new \yii\web\JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),// if it is null，the acceptFileTypesNew will working.
+        // 'showPreviewFilename' => false,
+        // 'clientOptions' => []
+    ]);
+
+    //With ActiveForm
+
+    echo $form->field($model, 'logo')->widget(
+        '\myzero1\yii2upload\widget\upload\Upload',
+        [
+            // 'maxFileSize' => 200  * 1024, // 200k
+            // 'acceptFileTypesNew' => [], // default ['gif','jpeg','jpg','png'],
+        ]
+    );
+    ......
+EOD;
+
+$output = $output . '<pre>' . highlight_string($code2, true) . '</pre>';
+
+$output = $output . '<p> Added the following requires to the section of require to composer.json. </p>';
+
+$sComposerRequires = '';
+foreach ($this->getComposerRequires()['require'] as $key => $value) {
+    $sComposerRequires .= sprintf('        "%s":"%s",',$key,$value) . "\n";
+}
+$sComposerRequires = trim($sComposerRequires,",\n");
+
+// $sComposerRequires = json_encode($this->getComposerRequires($this->themingID)['require'], JSON_PRETTY_PRINT);
+// $sComposerRequires = trim($sComposerRequires,'{}');
 
         $code3 = <<<EOD
 {
