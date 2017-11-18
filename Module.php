@@ -83,20 +83,20 @@ class Module extends \yii\base\Module implements BootstrapInterface
      * Defaults to 0777, meaning the directory can be read, written and executed by all users.
      */
     public $myzero1Tools = [
-        'theming' => [
+        'myzero1_theming' => [
             'name' => 'Myzero1 theming Generator',
             'description' => 'This is a description.',
             'url' => '/myzero1/gii/default/view?id=myzero1_theming',
         ],
-        'upload' => [
+        'myzero1_upload' => [
             'name' => 'Myzero1 upload Widget',
             'description' => 'This is a description.',
-            'url' => 'https://github.com/myzero1',
+            'url' => '/myzero1/gii/default/view?id=myzero1_upload',
         ],
-        'captcha' => [
+        'myzero1_captcha' => [
             'name' => 'Myzero1 captcha Widget',
             'description' => 'This is a description.',
-            'url' => 'https://github.com/myzero1',
+            'url' => '/myzero1/gii/default/view?id=myzero1_captcha',
         ],
     ];
 
