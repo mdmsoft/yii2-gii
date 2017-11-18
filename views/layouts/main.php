@@ -26,13 +26,13 @@ $myzero1Asset = \myzero1\gii\assets\Myzero1Asset::register($this);
         <?php
         NavBar::begin([
             'brandLabel' => Html::img($myzero1Asset->baseUrl . '/img/logo.png'),
-            'brandUrl' => ['default/index'],
+            'brandUrl' => ['/myzero1'],
             'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
         ]);
         echo Nav::widget([
             'options' => ['class' => 'nav navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Home', 'url' => ['default/index']],
+                ['label' => 'Home', 'url' => ['/myzero1']],
                 ['label' => 'Help', 'url' => 'https://github.com/myzero1'],
                 ['label' => 'Application', 'url' => Yii::$app->homeUrl],
             ],
