@@ -84,17 +84,17 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $myzero1Tools = [
         'theming' => [
-            'name' => 'Myzero1 theming',
+            'name' => 'Myzero1 theming Generator',
             'description' => 'This is a description.',
             'url' => '/myzero1/gii/default/view?id=myzero1_theming',
         ],
         'upload' => [
-            'name' => 'Myzero1 upload',
+            'name' => 'Myzero1 upload Widget',
             'description' => 'This is a description.',
             'url' => 'https://github.com/myzero1',
         ],
         'captcha' => [
-            'name' => 'Myzero1 captcha',
+            'name' => 'Myzero1 captcha Widget',
             'description' => 'This is a description.',
             'url' => 'https://github.com/myzero1',
         ],

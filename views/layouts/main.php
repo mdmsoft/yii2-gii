@@ -7,6 +7,8 @@ use yii\helpers\Html;
 /* @var $content string */
 
 $asset = yii\gii\GiiAsset::register($this);
+$myzero1Asset = \myzero1\gii\assets\Myzero1Asset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ $asset = yii\gii\GiiAsset::register($this);
         <?php $this->beginBody() ?>
         <?php
         NavBar::begin([
-            'brandLabel' => Html::img($asset->baseUrl . '/logo.png'),
+            'brandLabel' => Html::img($myzero1Asset->baseUrl . '/img/logo.png'),
             'brandUrl' => ['default/index'],
             'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
         ]);
@@ -31,7 +33,7 @@ $asset = yii\gii\GiiAsset::register($this);
             'options' => ['class' => 'nav navbar-nav navbar-right'],
             'items' => [
                 ['label' => 'Home', 'url' => ['default/index']],
-                ['label' => 'Help', 'url' => 'http://www.yiiframework.com/doc-2.0/guide-tool-gii.html'],
+                ['label' => 'Help', 'url' => 'https://github.com/myzero1'],
                 ['label' => 'Application', 'url' => Yii::$app->homeUrl],
             ],
         ]);
@@ -44,7 +46,7 @@ $asset = yii\gii\GiiAsset::register($this);
     </div>
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">A Product of <a href="http://www.yiisoft.com/">Yii Software LLC</a></p>
+            <p class="pull-left">A Product of <a href="https://github.com/myzero1">Myzero1</a></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>

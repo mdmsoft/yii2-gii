@@ -25,6 +25,6 @@ $this->title = 'Welcome to myzero1';
         <?php endforeach; ?>
     </div>
 
-    <p><a class="btn btn-success" href="http://www.yiiframework.com/extensions/?tag=gii">Get More Generators</a></p>
+    <p><a class="btn btn-success" href="https://github.com/myzero1/yii2-gii">Get More Tools</a></p>
 
 </div>
