@@ -7,7 +7,8 @@ use yii\helpers\Html;
 /* @var $content string */
 
 $asset = yii\gii\GiiAsset::register($this);
-$myzero1Asset = \myzero1\gii\Myzero1Asset::register($this);
+$myzero1Asset = \myzero1\gii\assets\Myzero1Asset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ $myzero1Asset = \myzero1\gii\Myzero1Asset::register($this);
         <?php $this->beginBody() ?>
         <?php
         NavBar::begin([
-            'brandLabel' => Html::img($myzero1Asset->baseUrl . '/logo.png'),
+            'brandLabel' => Html::img($myzero1Asset->baseUrl . '/img/logo.png'),
             'brandUrl' => ['default/index'],
             'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
         ]);

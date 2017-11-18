@@ -1,6 +1,6 @@
 <?php
 
-namespace myzero1\gii;
+namespace myzero1\gii\assets;
 
 use yii\web\AssetBundle;
 
