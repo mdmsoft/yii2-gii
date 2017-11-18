@@ -44,7 +44,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Myzero1 Upload Module';
+        return 'Myzero1 Upload Generator';
     }
 
     /**
@@ -115,7 +115,7 @@ EOD;
         $output = <<<EOD
 <div class="panel panel-warning">
     <div class="panel-heading">
-        Myzero1 Theming Generator will add the requires to composer.json
+        Myzero1 Upload Module Generator will add the requires to composer.json
     </div>
     <div class="panel-body">
         {$code}
