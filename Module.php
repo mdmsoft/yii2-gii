@@ -187,6 +187,9 @@ class Module extends \yii\base\Module implements BootstrapInterface
                     'class' => '\yii\gii\Module',
                     'allowedIPs' => $this->allowedIPs,
                     'generators' => [
+                        'myzero1_home' => [
+                            'class' => \myzero1\gii\generators\myzero1\Generator::class,
+                        ],
                         'myzero1_theming' => [
                             'class' => \myzero1\gii\generators\theming\Generator::class,
                         ],
