@@ -57,10 +57,14 @@ You can then access Gii through the following URL:
 
 ```
 http://localhost/path/to/index.php?r=myzero1
+OR
+http://localhost/path/to/index.php?r=myzero1/gii
 ```
 
 or if you have enabled pretty URLs, you may use the following URL:
 
 ```
 http://localhost/path/to/index.php/myzero1
+OR
+http://localhost/path/to/index.php/myzero1/gii
 ```
