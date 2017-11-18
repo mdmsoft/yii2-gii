@@ -17,7 +17,7 @@
 	"require": {
 		"yiisoft/yii2": "~2.0",
 		"yiisoft/yii2-gii": "~2.0",
-		"bower-asset/admin-lte": "2.3.8",
+		"bower-asset/admin-lte": "^2.4",
 		"bower-asset/font-awesome": "^4.0",
 		"bower-asset/html5shiv": "^3.0",
 		"bower-asset/jquery-slimscroll": "^1.3",
