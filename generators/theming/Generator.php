@@ -21,7 +21,7 @@ use yii\helpers\StringHelper;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \myzero1\gii\Generator
+class Generator extends \yii\gii\Generator
 {
     const ADMINLTE = 1;
 
@@ -32,9 +32,21 @@ class Generator extends \myzero1\gii\Generator
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        parent::init();
+
+        // // $this->templates = [
+        //     'AdminLte' => 'qq',
+        // // ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getName()
     {
-        return 'Theming Generator';
+        return 'Myzero1 Theming Generator';
     }
 
     /**
@@ -76,8 +88,8 @@ class Generator extends \myzero1\gii\Generator
     public function hints()
     {
         return [
-            'themingID' => 'This refers to the ID of the module, e.g., <code>admin</code>.',
-            'ns' => 'This is the fully qualified class name of the module, e.g., <code>app\modules\admin\Module</code>.',
+            'themingID' => 'This refers to the ID of the theming, e.g., <code>adminlte</code>.',
+            'ns' => 'This is the fully qualified namespace of the theming, e.g., <code>(eg:backend\themes)</code>.',
         ];
     }
 
@@ -150,11 +162,9 @@ EOD;
     public function requiredTemplates()
     {
         return [
-            // 'AdminLte.php',
-            // 'FontAwesome.php',
-            // 'Html5shiv.php',
-            // 'JquerySlimScroll.php',
-            // 'AdminLteThemingAsset.php',
+            // 'module.php',
+            // 'controller.php',
+            // 'view.php'
         ];
     }
 

@@ -38,7 +38,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Migration Generator';
+        return 'Myzero1 Migration Generator';
     }
 
     /**
