@@ -181,30 +181,34 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     protected function addDefaultGii($app)
     {
+        $generators = [
+            'myzero1_home' => [
+                'class' => \myzero1\gii\generators\myzero1\Generator::class,
+            ],
+            'myzero1_theming' => [
+                'class' => \myzero1\gii\generators\theming\Generator::class,
+            ],
+            'myzero1_mvc' => [
+                'class' => \myzero1\gii\generators\mvc\Generator::class,
+            ],
+            'crud' => [
+                'class' => \yii\gii\generators\crud\Generator::class,
+                'templates' => [
+                    'adminlte' => Yii::getAlias('@myzero1/gii/generators/theming/default/adminlte/_gii_templates/crud')
+                ],
+                'template' => 'adminlte',
+                'messageCategory' => 'backend'
+            ],
+        ];
+
+        $this->generators = array_merge($generators, $this->generators);
+
         $app->setModules(
             [
                 'gii' => [
                     'class' => '\yii\gii\Module',
                     'allowedIPs' => $this->allowedIPs,
-                    'generators' => [
-                        'myzero1_home' => [
-                            'class' => \myzero1\gii\generators\myzero1\Generator::class,
-                        ],
-                        'myzero1_theming' => [
-                            'class' => \myzero1\gii\generators\theming\Generator::class,
-                        ],
-                        'myzero1_mvc' => [
-                            'class' => \myzero1\gii\generators\mvc\Generator::class,
-                        ],
-                        // 'crud' => [
-                        //     'class' => \yii\gii\generators\crud\Generator::class,
-                        //     'templates' => [
-                        //         'adminlte' => Yii::getAlias('@myzero1/gii/generators/theming/default/adminlte/_gii_templates/crud')
-                        //     ],
-                        //     'template' => 'adminlte',
-                        //     // 'messageCategory' => 'backend'
-                        // ],
-                    ]
+                    'generators' => $this->generators,
                 ]
             ]
         );
