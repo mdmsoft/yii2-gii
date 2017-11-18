@@ -36,9 +36,9 @@ class Generator extends \yii\gii\Generator
     {
         parent::init();
 
-        $this->templates = [
-            // 'AdminLte' => 'qq',
-        ];
+        // // $this->templates = [
+        //     'AdminLte' => 'qq',
+        // // ];
     }
 
     /**
@@ -161,13 +161,7 @@ EOD;
      */
     public function requiredTemplates()
     {
-        return [
-            // 'AdminLte.php',
-            // 'FontAwesome.php',
-            // 'Html5shiv.php',
-            // 'JquerySlimScroll.php',
-            // 'AdminLteThemingAsset.php',
-        ];
+        return ['module.php', 'controller.php', 'view.php'];
     }
 
     /**

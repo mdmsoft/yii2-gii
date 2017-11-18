@@ -190,17 +190,23 @@ class Module extends \yii\base\Module implements BootstrapInterface
                         'myzero1_home' => [
                             'class' => \myzero1\gii\generators\myzero1\Generator::class,
                         ],
+                        'myzero1_mvc' => [
+                            'class' => \myzero1\gii\generators\mvc\Generator::class,
+                        ],
                         'myzero1_theming' => [
                             'class' => \myzero1\gii\generators\theming\Generator::class,
                         ],
-                        'crud' => [
-                            'class' => \yii\gii\generators\crud\Generator::class,
-                            'templates' => [
-                                'adminlte' => Yii::getAlias('@myzero1/gii/generators/theming/default/adminlte/_gii_templates/crud')
-                            ],
-                            'template' => 'adminlte',
-                            // 'messageCategory' => 'backend'
+                        'myzero1_module' => [
+                            'class' => \myzero1\gii\generators\module\Generator::class,
                         ],
+                        // 'crud' => [
+                        //     'class' => \yii\gii\generators\crud\Generator::class,
+                        //     'templates' => [
+                        //         'adminlte' => Yii::getAlias('@myzero1/gii/generators/theming/default/adminlte/_gii_templates/crud')
+                        //     ],
+                        //     'template' => 'adminlte',
+                        //     // 'messageCategory' => 'backend'
+                        // ],
                     ]
                 ]
             ]
