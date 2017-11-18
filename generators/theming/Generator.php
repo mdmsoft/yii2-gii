@@ -153,7 +153,32 @@ $assetClass = $this->ns . '\\' . $this->getThemingName($this->themingID) . '\ass
     ......
 EOD;
 
-        return $output . '<pre>' . highlight_string($code2, true) . '</pre>';
+$output = $output . '<pre>' . highlight_string($code2, true) . '</pre>';
+
+$output = $output . '<p> add the following requires to the section of require to composer.json. </p>';
+
+$sComposerRequires = '';
+foreach ($this->getComposerRequires($this->themingID)['require'] as $key => $value) {
+    $sComposerRequires .= sprintf('        "%s":"%s",',$key,$value) . "\n";
+}
+$sComposerRequires = trim($sComposerRequires,",\n");
+
+// $sComposerRequires = json_encode($this->getComposerRequires($this->themingID)['require'], JSON_PRETTY_PRINT);
+// $sComposerRequires = trim($sComposerRequires,'{}');
+
+        $code3 = <<<EOD
+{
+    ......
+    "require": {
+        ......
+{$sComposerRequires}
+        ......
+    }
+    ......
+}
+EOD;
+
+        return $output . '<pre>' . highlight_string($code3, true) . '</pre>';
     }
 
     /**
@@ -300,16 +325,34 @@ EOD;
 
         $composerContent = json_decode(file_get_contents($path),true);
 
-        switch ($this->themingID) {
-            case self::ADMINLTE:
-                $composerContent['require']['yiisoft/yii2-jui'] = '^2.0.0';
-                $composerContent['require']['bower-asset/jquery-slimscroll'] = '^1.3';
-                $composerContent['require']['bower-asset/html5shiv'] = '^3.0';
-                $composerContent['require']['bower-asset/font-awesome'] = '^4.0';
-                $composerContent['require']['bower-asset/admin-lte'] = '^2.3.11';
-                break;
+        $aComposerRequires = $this->getComposerRequires($this->themingID);
+
+        foreach ($aComposerRequires['require'] as $key => $value) {
+            $composerContent['require'][$key] = $value;
         }
 
        file_put_contents($path, str_replace('\\', '', json_encode($composerContent, JSON_PRETTY_PRINT)));
+    }
+
+    /**
+     * @return string the controller namespace of the module.
+     */
+    public function getComposerRequires($id=1)
+    {
+        $aComposerRequires = array();
+
+        switch ($id) {
+            case self::ADMINLTE:
+                $aComposerRequires['require'] = [
+                    'yiisoft/yii2-jui' => '^2.0.0',
+                    'bower-asset/jquery-slimscroll' => '^1.3',
+                    'bower-asset/html5shiv' => '^3.0',
+                    'bower-asset/font-awesome' => '^4.0',
+                    'bower-asset/admin-lte' => '^2.3.11',
+                ];
+                break;
+        }
+
+       return $aComposerRequires;
     }
 }
