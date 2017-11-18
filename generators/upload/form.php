@@ -6,6 +6,7 @@
 ?>
 <div class="module-form">
 <?php
+	echo $generator->showExample();
 	echo $generator->noticeMessage();
 ?>
 </div>

@@ -132,6 +132,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
         $this->addDefaultGii($this);
 
+        $this->addExample($this);
     }
 
 
@@ -217,4 +218,24 @@ class Module extends \yii\base\Module implements BootstrapInterface
             ]
         );
     }
+
+
+    /**
+     * @return string the controller namespace of the module.
+     */
+    protected function addExample($app)
+    {
+        $app->setModules(
+            [
+                'myzero1_upload' => [
+                    'class' => 'myzero1\yii2upload\Tools',
+                    'upload' => [
+                        'basePath' => '@webroot/myzero1_upload',
+                        'baseUrl' => '@web/myzero1_upload',
+                    ],
+                ],
+            ]
+        );
+    }
+
 }

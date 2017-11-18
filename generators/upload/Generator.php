@@ -247,4 +247,36 @@ EOD;
 
        return $aComposerRequires;
     }
+
+    /**
+     * @return string the controller namespace of the module.
+     */
+    public function showExample()
+    {
+        $model = new \common\models\User();
+        $example = \myzero1\yii2upload\widget\upload\Upload::widget([
+            'model' => $model,
+            'attribute' => 'id',
+            'url' => ['/myzero1/myzero1_upload/upload/upload'], // default ['/tools/upload/upload'],
+            'maxFileSize' => 200  * 1024, // 200k
+            'minFileSize' => 1 * 1024, // 1k
+            // 'sortable' => true,
+            // 'maxNumberOfFiles' => 1, // default 1,
+            // 'acceptFileTypesNew' => [], // default ['gif','jpeg','jpg','png'],
+            // 'acceptFileTypes' => new \yii\web\JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),// if it is null，the acceptFileTypesNew will working.
+            // 'showPreviewFilename' => false,
+            // 'clientOptions' => []
+        ]);
+
+        return <<<EOF
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Upload example:
+    </div>
+    <div class="panel-body">
+        {$example}
+    </div>
+</div>
+EOF;
+    }
 }
