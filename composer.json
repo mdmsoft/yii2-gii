@@ -21,7 +21,8 @@
 		"bower-asset/font-awesome": "^4.0",
 		"bower-asset/html5shiv": "^3.0",
 		"bower-asset/jquery-slimscroll": "^1.3",
-		"bower-asset/flot": "^0.8"
+		"bower-asset/flot": "^0.8",
+		"myzero1/yii2-upload": "~1.0.2"
 	},
 	"autoload": {
 		"psr-4": {
