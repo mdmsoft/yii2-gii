@@ -211,7 +211,7 @@ EOD;
         $output = <<<EOD
 <div class="panel panel-warning">
     <div class="panel-heading">
-        It will add the requires to composer.json
+        Myzero1 Theming Generator will add the requires to composer.json
     </div>
     <div class="panel-body">
         {$code}
