@@ -189,9 +189,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
             'myzero1_theming' => [
                 'class' => \myzero1\gii\generators\theming\Generator::class,
             ],
-
             'myzero1_upload' => [
                 'class' => \myzero1\gii\generators\upload\Generator::class,
+            ],
+
+            'myzero1_captcha' => [
+                'class' => \myzero1\gii\generators\captcha\Generator::class,
             ],
             'myzero1_mvc' => [
                 'class' => \myzero1\gii\generators\mvc\Generator::class,
